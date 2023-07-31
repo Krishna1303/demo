@@ -50,7 +50,7 @@ public class DemoController {
 	}
 
 	@GetMapping(path = "/getDataById/{id}")
-	public ResponseEntity<SurveyModel> uploadData(@PathVariable long id) {
+	public ResponseEntity<SurveyModel> getDataById(@PathVariable long id) {
 		SurveyModel model = customRepository.findById(id).orElse(null);
 		return new ResponseEntity<>(model,HttpStatus.OK);
 	}
