@@ -56,7 +56,7 @@ public class DemoController {
 	}
 
 	@GetMapping("/getData")
-	public @ResponseBody getData(Model model){
+	public List<SurveyModel> getData(Model model){
 		List<SurveyModel> surveyList = customRepository.findAll();
         model.addAttribute("surveys", surveyList);
 		return surveyList;
