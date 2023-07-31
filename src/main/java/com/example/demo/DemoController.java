@@ -43,6 +43,19 @@ public class DemoController {
 				return ResponseEntity.ok("Survey data created successfully.");
 	}
 
+	@GetMapping(path = "/deleteData/{id}")
+	public ResponseEntity<String> uploadData(@PathVariable long id) {
+		customRepository.deleteById(id);
+		return ResponseEntity.ok("Survey data deleted successfully.");
+	}
+
+	@GetMapping(path = "/getDataById/{id}")
+	public ResponseEntity<SurveyModel> uploadData(@PathVariable long id) {
+		SurveyModel model = customRepository.findById(id).orElse(null);
+		return new ResponseEntity<>(model,HttpStatus.OK);
+	}
+
+
 	@PostMapping(path = "/updateData/{id}")
 	public ResponseEntity<String> updateData(@PathVariable long id,@ModelAttribute SurveyModel surveyModel) {
 		        SurveyModel model = customRepository.findById(id).orElse(null);
