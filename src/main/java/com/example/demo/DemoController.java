@@ -37,10 +37,10 @@ public class DemoController {
 	}
 
 	@PostMapping(path = "/uploadData")
-	public String uploadData(@ModelAttribute SurveyModel model) {
+	public ResponseEntity<String> uploadData(@ModelAttribute SurveyModel model) {
 		System.out.println(model.getFirstName());
 		customRepository.save(model);
-		return "thanks";
+				return ResponseEntity.ok("Survey data created successfully.");
 	}
 
 	@PostMapping(path = "/updateData/{id}")
@@ -48,18 +48,18 @@ public class DemoController {
 		        SurveyModel model = customRepository.findById(id).orElse(null);
 				if(model!=null){
 					customRepository.save(surveyModel);
-		return ResponseEntity.ok("Employee's salary updated successfully.");
+		return ResponseEntity.ok("Survey data updated successfully.");
 				}
 				else{
-					            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Employee with ID " + id + " not found.");
+					return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Survey with id " + id + " not found.");
 				}
 	}
 
 	@GetMapping("/getData")
-	public String getData(Model model){
+	public @ResponseBody getData(Model model){
 		List<SurveyModel> surveyList = customRepository.findAll();
         model.addAttribute("surveys", surveyList);
-		return "survey";
+		return surveyList;
 	}
 
 	
