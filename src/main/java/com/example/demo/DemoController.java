@@ -57,9 +57,10 @@ public class DemoController {
 
 	@GetMapping("/getData")
 	public List<SurveyModel> getData(){
-		List<SurveyModel> surveyList = customRepository.findAll();
+		return customRepository.findAll();
+		// List<SurveyModel> surveyList = customRepository.findAll();
         // model.addAttribute("surveys", surveyList);
-		return surveyList;
+		// return surveyList;
 	}
 
 	
