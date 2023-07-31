@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f5f5f5; /* Alternate color for odd rows */
+        }
+
+        tr:nth-child(even) {
+            background-color: #ffffff; /* Alternate color for even rows */
+        }
+
+        tr:hover {
+            background-color: #e0e0e0; /* Hover color for all rows */
+        }
+    </style>
+</head>
+<body>
+    <h1>Survey Data</h1>
+
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Street Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Telephone</th>
+            <th>Email</th>
+            <th>Date of Survey</th>
+            <th>Liked Most</th>
+            <th>Interested By</th>
+            <th>Likelihood</th>
+            <th>Raffle</th>
+            <th>Comments</th>
+        </tr>
+        <!-- Loop through the surveys and display data in the table -->
+        <tr th:each="survey : ${surveys}">
+            <td th:text="${survey.firstName}">John</td>
+            <td th:text="${survey.lastName}">Doe</td>
+            <td th:text="${survey.streetAddress}">123 Main St</td>
+            <td th:text="${survey.city}">Cityville</td>
+            <td th:text="${survey.state}">CA</td>
+            <td th:text="${survey.zip}">12345</td>
+            <td th:text="${survey.telephone}">555-123-4567</td>
+            <td th:text="${survey.email}">john@example.com</td>
+            <td th:text="${survey.dateOfSurvey}">2023-07-27</td>
+            <td th:text="${survey.likedMost}">Product Quality</td>
+            <td th:text="${survey.interestedBy}">Discounts</td>
+            <td th:text="${survey.likelihood}">Highly Likely</td>
+            <td th:text="${survey.raffle}">Yes</td>
+            <td th:text="${survey.comments}">Great product!</td>
+        </tr>
+    </table>
+</body>
+</html>
