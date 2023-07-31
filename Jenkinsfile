@@ -26,7 +26,6 @@ pipeline{
 		stage("Deploying to rancher"){
 			steps{
 				script{
-					// sh 'kubectl set image deployment/survey container-0=krishna1303/survey -n 645clusternamespace'
 					sh 'kubectl rollout restart deploy demo -n kubernetes-namespace'
 				}
 			}

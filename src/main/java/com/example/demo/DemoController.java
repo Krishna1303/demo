@@ -56,7 +56,7 @@ public class DemoController {
 			return new ResponseEntity<>(model,HttpStatus.OK);
 		}
 		else{
-			String message = "User with ID " + id + " not found.";
+			String message = "User with id " + id + " not found.";
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
 		}
 	}
