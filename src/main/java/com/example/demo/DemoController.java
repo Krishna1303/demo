@@ -50,14 +50,14 @@ public class DemoController {
 	}
 
 	@GetMapping(path = "/getDataById/{id}")
-	public ResponseEntity<SurveyModel> getDataById(@PathVariable long id) {
+	public ResponseEntity<Object> getDataById(@PathVariable long id) {
 		SurveyModel model = customRepository.findById(id).orElse(null);
 		if(model!=null){
 			return new ResponseEntity<>(model,HttpStatus.OK);
 		}
 		else{
-			SurveyModel newModel = new SurveyModel();
-			return new ResponseEntity<>(newModel,HttpStatus.OK);
+			String message = "User with ID " + id + " not found.";
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
 		}
 	}
 
