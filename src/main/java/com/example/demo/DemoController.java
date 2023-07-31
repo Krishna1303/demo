@@ -57,7 +57,7 @@ public class DemoController {
 		}
 		else{
 			SurveyModel newModel = new SurveyModel();
-			return ResponseEntity<>(newModel,HttpStatus.OK);
+			return new ResponseEntity<>(newModel,HttpStatus.OK);
 		}
 	}
 
